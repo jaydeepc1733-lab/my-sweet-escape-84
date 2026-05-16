@@ -45,16 +45,13 @@ function LockScreen() {
   };
 
   useEffect(() => {
-    if (cfg?.method === "pin" && pin.length >= 4 && pin.length === cfg.hash.length) {
-      // length unknown — only auto-submit when user reaches 6
-    }
     if (cfg?.method === "pin" && pin.length === 6) tryUnlock(pin);
   }, [pin, cfg]);
 
   if (!cfg) return null;
 
   return (
-    <div className={`flex min-h-screen flex-col px-6 py-10 ${shake ? "animate-shake" : ""}`}>
+    <div className={`flex min-h-screen flex-col px-6 py-10 ${shake ? "animate-pulse" : ""}`}>
       <header className="flex justify-center">
         <AppLogo />
       </header>
